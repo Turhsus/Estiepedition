@@ -48,9 +48,13 @@
 <body>
     <div class="container" id="login-screen">
         <h2>Enter Passcode</h2>
-        <input type="password" id="passcode" placeholder="Enter passcode">
+        <input type="password" id="passcode" placeholder="Enter the year the company was founded">
         <button onclick="checkPasscode()">Submit</button>
         <p id="message" class="hidden" style="color: red;">Incorrect passcode!</p>
+        <h2>Enter Date Idea Passcode</h2>
+        <input type="password" id="datePasscode" placeholder="The item number for my Valentines Day Gift!">
+        <button onclick="checkDatePasscode()">Submit</button>
+        <p id="dateMessage" class="hidden" style="color: red;">Incorrect passcode!</p>
     </div>
 
     <div class="container hidden" id="transaction-screen">
@@ -68,15 +72,75 @@
             </tr>
             <tr>
                 <td>02/02/2025</td>
-                <td>Grocery Store</td>
+                <td>Safeway</td>
                 <td>-$35.20</td>
             </tr>
             <tr>
                 <td>02/03/2025</td>
-                <td>Coffee Shop</td>
+                <td>Philz</td>
                 <td>-$4.50</td>
             </tr>
+            <tr>
+                <td>02/04/2025</td>
+                <td>Trader Joe's</td>
+                <td>-$32.75</td>
+            </tr>
+            <tr>
+                <td>02/05/2025</td>
+                <td>Costco Gas</td>
+                <td>-$45.00</td>
+            </tr>
+            <tr>
+                <td>02/06/2025</td>
+                <td>Amazon</td>
+                <td>-$120.99</td>
+            </tr>
+            <tr>
+                <td>02/07/2025</td>
+                <td>Orchid Set</td>
+                <td>-$49.99</td>
+            </tr>
+            <tr>
+                <td>02/08/2025</td>
+                <td>24 Hr. Fitness</td>
+                <td>-$50.00</td>
+            </tr>
+            <tr>
+                <td>02/09/2025</td>
+                <td>Hulu</td>
+                <td>-$9.99</td>
+            </tr>
+            <tr>
+                <td>02/10/2025</td>
+                <td>CVS</td>
+                <td>-$18.25</td>
+            </tr>
+            <tr>
+                <td>02/11/2025</td>
+                <td>Bookstore</td>
+                <td>-$15.80</td>
+            </tr>
+            <tr>
+                <td>02/12/2025</td>
+                <td>Public Transport</td>
+                <td>-$2.75</td>
+            </tr>
+            <tr>
+                <td>02/13/2025</td>
+                <td>Apple Store - Macbook Air</td>
+                <td>-$199.99</td>
+            </tr>
+            <tr>
+                <td>02/14/2025</td>
+                <td>Plum Blossom Set</td>
+                <td>-$29.99</td>
+            </tr>     
         </table>
+    </div>
+
+    <div class="container hidden" id="date-screen">
+        <h2>Date Location: Plaza de Valencia</h2>
+        <p>I can't wait to have a nice little coffee date with Sushrut! I'm going to meet him at the Plaza de Valencia, if I'm ever missing thats where I'll go, and enjoy some ice cream and coffee.</p>
     </div>
 
     <script>
@@ -89,6 +153,18 @@
                 document.getElementById("transaction-screen").classList.remove("hidden");
             } else {
                 document.getElementById("message").classList.remove("hidden");
+            }
+        }
+
+        function checkDatePasscode() {
+            const passcode = document.getElementById("datePasscode").value;
+            const correctDatePasscode = "10369"; // Change this to your desired passcode
+            if (passcode === correctDatePasscode) {
+                document.getElementById("dateMessage").classList.add("hidden");
+                document.getElementById("login-screen").classList.add("hidden");
+                document.getElementById("date-screen").classList.remove("hidden");
+            } else {
+                document.getElementById("dateMessage").classList.remove("hidden");
             }
         }
     </script>
