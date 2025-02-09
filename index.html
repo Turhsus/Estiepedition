@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcode Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .hidden {
+            display: none;
+        }
+        .transactions {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-screen">
+        <h2>Enter Passcode</h2>
+        <input type="password" id="passcode" placeholder="Enter passcode">
+        <button onclick="checkPasscode()">Submit</button>
+        <p id="message" class="hidden" style="color: red;">Incorrect passcode!</p>
+    </div>
+
+    <div class="container hidden" id="transaction-screen">
+        <h2>Credit Card Transactions</h2>
+        <table border="1" class="transactions">
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>02/01/2025</td>
+                <td>Amazon Purchase</td>
+                <td>-$49.99</td>
+            </tr>
+            <tr>
+                <td>02/02/2025</td>
+                <td>Grocery Store</td>
+                <td>-$35.20</td>
+            </tr>
+            <tr>
+                <td>02/03/2025</td>
+                <td>Coffee Shop</td>
+                <td>-$4.50</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function checkPasscode() {
+            const passcode = document.getElementById("passcode").value;
+            const correctPasscode = "1932"; // Change this to your desired passcode
+            if (passcode === correctPasscode) {
+                document.getElementById("message").classList.add("hidden");
+                document.getElementById("login-screen").classList.add("hidden");
+                document.getElementById("transaction-screen").classList.remove("hidden");
+            } else {
+                document.getElementById("message").classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
